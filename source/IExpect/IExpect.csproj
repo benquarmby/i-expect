@@ -34,6 +34,12 @@
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\Release\IExpect.xml</DocumentationFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +61,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Key.snk">
+      <Link>Properties\Key.snk</Link>
+    </None>
     <None Include="IExpect.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
