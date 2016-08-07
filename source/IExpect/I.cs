@@ -3,7 +3,7 @@
 namespace IExpect
 {
     /// <summary>
-    /// Static class used to expose the Expect method.
+    /// Creates expectations.
     /// </summary>
     public static class I
     {

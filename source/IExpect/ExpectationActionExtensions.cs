@@ -2,19 +2,33 @@
 
 namespace IExpect
 {
+    /// <summary>
+    /// Matchers for delegate actions.
+    /// </summary>
     public static class ExpectationActionExtensions
     {
-        public static T ToThrow<T>(this IExpectation<Action> expectation)
-            where T : Exception
+        /// <summary>
+        /// Determines whether the given delegate expectation throws an exception.
+        /// </summary>
+        /// <typeparam name="TException">The type of exception.</typeparam>
+        /// <param name="expectation">The delegate expectation.</param>
+        /// <returns>The exception.</returns>
+        public static TException ToThrow<TException>(this IExpectation<Action> expectation)
+            where TException : Exception
         {
-            var typeOfT = typeof(T);
+            var typeOfT = typeof(TException);
             var exception = Capture(expectation.Actual);
 
             ExpectationHelper.PassFail(exception != null && typeOfT.IsAssignableFrom(exception.GetType()), expectation, typeOfT.FullName);
 
-            return (T)exception;
+            return (TException)exception;
         }
 
+        /// <summary>
+        /// Determines whether the given delegate expectation throws an exception.
+        /// </summary>
+        /// <param name="expectation">The delegate expectation.</param>
+        /// <returns>The exception.</returns>
         public static Exception ToThrow(this IExpectation<Action> expectation)
         {
             var exception = Capture(expectation.Actual);

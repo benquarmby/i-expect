@@ -1,9 +1,12 @@
 ﻿namespace IExpect
 {
+    /// <summary>
+    /// Matchers for boolean expectations.
+    /// </summary>
     public static class ExpectationBooleanExtensions
     {
         /// <summary>
-        /// Matcher that tests if the actual is true.
+        /// Determines whether the actual value is true.
         /// </summary>
         /// <param name="expectation">The expectation.</param>
         public static void ToBeTrue(this IExpectation<bool> expectation)
@@ -12,7 +15,7 @@
         }
 
         /// <summary>
-        /// Matcher that tests if the actual is false.
+        /// Determines whether the actual value is false.
         /// </summary>
         /// <param name="expectation">The expectation.</param>
         public static void ToBeFalse(this IExpectation<bool> expectation)
@@ -21,7 +24,7 @@
         }
 
         /// <summary>
-        /// Matcher that tests if the actual is true.
+        /// Determines whether the actual value is true.
         /// </summary>
         /// <param name="expectation">The expectation.</param>
         public static void ToBeTrue(this IExpectation<bool?> expectation)
@@ -32,7 +35,7 @@
         }
 
         /// <summary>
-        /// Matcher that tests if the actual is false.
+        /// Determines whether the actual value is false.
         /// </summary>
         /// <param name="expectation">The expectation.</param>
         public static void ToBeFalse(this IExpectation<bool?> expectation)
@@ -43,7 +46,7 @@
         }
 
         /// <summary>
-        /// Matcher that tests if the actual is false or null.
+        /// Determines whether the actual value is false or null.
         /// </summary>
         /// <param name="expectation">The expectation.</param>
         public static void ToBeNullOrFalse(this IExpectation<bool?> expectation)

@@ -48,7 +48,7 @@
         }
 
         /// <summary>
-        /// Matcher that determines whether the actual value is null.
+        /// Determines whether the actual value is null.
         /// </summary>
         public void ToBeNull()
         {
@@ -56,7 +56,7 @@
         }
 
         /// <summary>
-        /// Matcher that determines whether the actual value type is the same as the given type.
+        /// Determines whether the actual value type is the same as the given type.
         /// </summary>
         /// <typeparam name="TExpected">The type to compare.</typeparam>
         public void ToBeOfType<TExpected>()

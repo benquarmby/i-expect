@@ -1,7 +1,7 @@
 ﻿namespace IExpect
 {
     /// <summary>
-    /// An expectation that can be reversed to a negative state.
+    /// Represents an expectation that can be reversed to a negative state.
     /// </summary>
     /// <typeparam name="TActual">Any type.</typeparam>
     public interface IReversibleExpectation<out TActual> : IExpectation<TActual>

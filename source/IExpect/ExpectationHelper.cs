@@ -3,9 +3,19 @@ using System.Text;
 
 namespace IExpect
 {
+    /// <summary>
+    /// Helper class for handling expectation failures.
+    /// </summary>
     public static class ExpectationHelper
     {
-        public static void PassFail<T>(bool pass, IExpectation<T> expectation, params object[] args)
+        /// <summary>
+        /// Determines whether the expectation passed or failed.
+        /// </summary>
+        /// <typeparam name="TActual">The type of the actual value.</typeparam>
+        /// <param name="pass">If set to <c>true</c> passes the expectation.</param>
+        /// <param name="expectation">The expectation.</param>
+        /// <param name="args">The arguments.</param>
+        public static void PassFail<TActual>(bool pass, IExpectation<TActual> expectation, params object[] args)
         {
             if (pass != expectation.Positive)
             {

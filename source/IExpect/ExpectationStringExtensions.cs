@@ -2,10 +2,13 @@
 
 namespace IExpect
 {
+    /// <summary>
+    /// Matchers for string expectations.
+    /// </summary>
     public static class ExpectationStringExtensions
     {
         /// <summary>
-        /// Matcher that passes if the actual starts with the expected.
+        /// Determines whether the actual value starts with the expected value.
         /// </summary>
         /// <param name="expectation">The expectation.</param>
         /// <param name="expected">The expected value.</param>
@@ -17,7 +20,7 @@ namespace IExpect
         }
 
         /// <summary>
-        /// Matcher that passes if the actual ends with the expected.
+        /// Determines whether the actual value ends with the expected value.
         /// </summary>
         /// <param name="expectation">The expectation.</param>
         /// <param name="expected">The expected value.</param>
@@ -29,7 +32,7 @@ namespace IExpect
         }
 
         /// <summary>
-        /// Matcher that passes if the actual contains the expected.
+        /// Determines whether the actual value contains the expected value.
         /// </summary>
         /// <param name="expectation">The expectation.</param>
         /// <param name="expected">The expected value.</param>
@@ -40,6 +43,11 @@ namespace IExpect
             ExpectationHelper.PassFail(pass, expectation, expected);
         }
 
+        /// <summary>
+        /// Determines whether the actual value matches the expected regular expression pattern.
+        /// </summary>
+        /// <param name="expectation">The expectation.</param>
+        /// <param name="pattern">The expected regular expression pattern.</param>
         public static void ToMatch(this IExpectation<string> expectation, string pattern)
         {
             var regex = new Regex(pattern);
@@ -47,6 +55,12 @@ namespace IExpect
             ExpectationHelper.PassFail(regex.IsMatch(expectation.Actual), expectation, pattern.ToString());
         }
 
+        /// <summary>
+        /// Determines whether the actual value matches the expected regular expression pattern with the specified options.
+        /// </summary>
+        /// <param name="expectation">The expectation.</param>
+        /// <param name="pattern">The expected regular expression pattern.</param>
+        /// <param name="options">The regular expression options.</param>
         public static void ToMatch(this IExpectation<string> expectation, string pattern, RegexOptions options)
         {
             var regex = new Regex(pattern, options);
@@ -54,6 +68,11 @@ namespace IExpect
             ExpectationHelper.PassFail(regex.IsMatch(expectation.Actual), expectation, pattern.ToString());
         }
 
+        /// <summary>
+        /// Determines whether the actual value matches the expected regular expression.
+        /// </summary>
+        /// <param name="expectation">The expectation.</param>
+        /// <param name="pattern">The expected regular expression.</param>
         public static void ToMatch(this IExpectation<string> expectation, Regex pattern)
         {
             ExpectationHelper.PassFail(pattern.IsMatch(expectation.Actual), expectation, pattern.ToString());
