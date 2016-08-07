@@ -26,6 +26,6 @@ namespace IExpect
 
         public const string Version = "1.0.0";
 
-        public const string InformationalVersion = Version + "-alpha";
+        public const string InformationalVersion = Version + "-alpha1";
     }
 }
